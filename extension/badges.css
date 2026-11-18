@@ -1,0 +1,47 @@
+#stch-completion {
+  margin: 16px 0;
+  padding: 16px 20px;
+  background: #192c3c;
+  color: #d6e1e7;
+  border: 1px solid #35526a;
+  border-radius: 4px;
+  font: 14px/1.5 Arial, "Microsoft YaHei", sans-serif;
+}
+#stch-completion .stch-header, #stch-completion .stch-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#stch-completion h2 { flex: 1 1 auto; margin: 0; color: #eef5fa; font-size: 19px; }
+#stch-completion label, #stch-completion p, #stch-completion summary span { color: #b6c6d0; }
+#stch-completion button, #stch-completion select {
+  border: 1px solid #57768c;
+  border-radius: 3px;
+  background: #243c4f;
+  color: #f2f7f9;
+  padding: 5px 9px;
+  font: inherit;
+}
+#stch-completion button { background: #28668b; cursor: pointer; }
+#stch-completion button:hover { background: #337ba4; }
+#stch-completion p { margin: 12px 0 6px; }
+#stch-completion p:empty { display: none; }
+#stch-completion details { border-top: 1px solid #345064; }
+#stch-completion summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: baseline;
+  padding: 9px 0;
+  cursor: pointer;
+}
+#stch-completion summary::before { content: "▸"; color: #a4cadd; }
+#stch-completion details[open] summary::before { content: "▾"; }
+#stch-completion strong { overflow-wrap: anywhere; }
+#stch-completion b { color: #b2e19c; font-variant-numeric: tabular-nums; }
+#stch-completion .stch-unknown { color: #e0c79a; }
+#stch-completion ul { margin: 0 0 12px 21px; padding: 0; list-style: none; }
+#stch-completion li { display: flex; justify-content: space-between; gap: 12px; }
+#stch-completion .stch-links { margin: 0 0 12px 21px; }
+#stch-completion a { color: #95d7ff; text-decoration: underline; }

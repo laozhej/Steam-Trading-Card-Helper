@@ -2,6 +2,19 @@
 
 简体中文 | [English](README-en.md)
 
+## Chrome / Edge 扩展版
+
+这个 fork 提供可直接加载的 **Steam 徽章补齐助手**，基于 SpaceSyt 的 MIT 项目。点击工具栏中的扩展图标进入自己的徽章页，选择估价币种并点击「扫描本页」。展开一行即可查看缺卡及其最低在售价，再前往 Steam 原生市场确认购买。
+
+1. 下载并解压本仓库（GitHub 的 **Code → Download ZIP**），找到含有 `manifest.json` 的 `extension` 文件夹。
+2. 打开 `chrome://extensions` 或 `edge://extensions`，开启「开发者模式」，点击「加载已解压的扩展程序」并选择该文件夹。已经打开的徽章页需要刷新。
+
+扩展扫描当前页的普通和闪卡徽章，按补齐一套的估价排序。缺价和读取失败的项目排在最后。默认以人民币估价，也支持美元和港币。遇到 Steam 限流时会停止并保留已完成的结果。所有市场操作由你在 Steam 确认。
+
+开发时运行 `npm ci` 和 `npm run build:extension` 可重新生成扩展。下文介绍上游用户脚本的功能和安装方法。
+
+## 上游用户脚本
+
 Steam 卡牌助手是一款 Tampermonkey 脚本，用于扫描 Steam 卡牌价格、估算徽章成本、辅助购买、自动购买、管理订购单，以及批量处理社区物品。
 
 > [!IMPORTANT]

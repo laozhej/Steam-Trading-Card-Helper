@@ -2,6 +2,10 @@
 
 [简体中文](README.md) | English
 
+## Chrome / Edge extension
+
+Download and extract the repository, open `chrome://extensions` or `edge://extensions`, enable Developer mode, and load the unpacked `extension` directory. Click the extension icon to open your badges. The Chinese-language extension lists missing cards on the current page, sorts badges by estimated completion cost and opens Steam's native purchase page for review. Rebuild it with `npm ci` and `npm run build:extension`. The following sections describe the upstream userscript.
+
 Steam Trading Card Helper is a Tampermonkey userscript for scanning Steam trading card prices, estimating badge costs, assisting or automating purchases, managing buy orders, and processing Community items in bulk.
 
 > [!IMPORTANT]

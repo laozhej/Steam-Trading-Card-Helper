@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Steam 徽章补齐助手",
+  "version": "0.1.0",
+  "description": "在 Steam 徽章页按补齐一套的预计成本排序，查看缺少的卡牌并打开 Steam 市场购买页。",
+  "action": { "default_title": "打开我的 Steam 徽章" },
+  "background": { "service_worker": "open-badges.js" },
+  "content_scripts": [{
+    "matches": ["https://steamcommunity.com/id/*/badges*", "https://steamcommunity.com/profiles/*/badges*"],
+    "js": ["badges.js"],
+    "css": ["badges.css"],
+    "run_at": "document_idle"
+  }]
+}

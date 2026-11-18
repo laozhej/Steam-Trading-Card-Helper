@@ -17,7 +17,7 @@ function parseCardImageUrl(cardElement) {
     return parseGameCardsDocument(new DOMParser().parseFromString(html, "text/html"), appid, isFoil);
   }
 
-  function parseGameCardsDocument(doc, appid, isFoil) {
+  export function parseGameCardsDocument(doc, appid, isFoil) {
 
     // game name from title
     let gameName = "";
