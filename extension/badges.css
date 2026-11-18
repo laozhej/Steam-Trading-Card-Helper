@@ -25,6 +25,8 @@
 }
 #stch-completion button { background: #28668b; cursor: pointer; }
 #stch-completion button:hover { background: #337ba4; }
+#stch-completion select:disabled { opacity: .6; }
+#stch-completion :focus-visible { outline: 2px solid #66c0f4; outline-offset: 1px; }
 #stch-completion p { margin: 12px 0 6px; }
 #stch-completion p:empty { display: none; }
 #stch-completion details { border-top: 1px solid #345064; }
@@ -33,15 +35,35 @@
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   gap: 10px;
   align-items: baseline;
-  padding: 9px 0;
+  padding: 9px 6px;
   cursor: pointer;
 }
+#stch-completion summary:hover { background: #1f3649; }
 #stch-completion summary::before { content: "▸"; color: #a4cadd; }
 #stch-completion details[open] summary::before { content: "▾"; }
 #stch-completion strong { overflow-wrap: anywhere; }
-#stch-completion b { color: #b2e19c; font-variant-numeric: tabular-nums; }
+#stch-completion em {
+  margin-left: 8px;
+  padding: 0 5px;
+  border: 1px solid #9c8240;
+  border-radius: 2px;
+  color: #f0d27a;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+#stch-completion b { min-width: 5.5em; text-align: right; color: #b2e19c; }
+#stch-completion b, #stch-completion li { font-variant-numeric: tabular-nums; }
 #stch-completion .stch-unknown { color: #e0c79a; }
-#stch-completion ul { margin: 0 0 12px 21px; padding: 0; list-style: none; }
+#stch-completion ul { margin: 0 6px 12px 27px; padding: 0; list-style: none; }
 #stch-completion li { display: flex; justify-content: space-between; gap: 12px; }
-#stch-completion .stch-links { margin: 0 0 12px 21px; }
+#stch-completion .stch-links { margin: 0 6px 12px 27px; }
 #stch-completion a { color: #95d7ff; text-decoration: underline; }
+#stch-completion a[href*="multibuy"] {
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: #5c7e10;
+  color: #fff;
+  text-decoration: none;
+}
+#stch-completion a[href*="multibuy"]:hover { background: #4f6d0d; }

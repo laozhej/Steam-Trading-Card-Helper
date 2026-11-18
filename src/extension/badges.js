@@ -25,9 +25,10 @@ function profilePath(href) {
 function resultRow(result, money) {
   const details = element("details");
   const summary = element("summary");
-  const title = element("strong", result.name + (result.isFoil ? " · 闪卡" : ""));
-  const status = result.error || (result.missing.length ? `缺 ${result.missing.length} 张` : "已集齐");
-  const amount = element("b", result.cost == null ? "缺价" : money.format(result.cost / 100));
+  const title = element("strong", result.name);
+  if (result.isFoil) title.append(element("em", "闪卡"));
+  const status = result.error ? "" : result.missing.length ? `缺 ${result.missing.length} 张` : "已集齐";
+  const amount = element("b", result.error || (result.cost == null ? "缺价" : money.format(result.cost / 100)));
   if (result.cost == null) amount.className = "stch-unknown";
   summary.append(title, element("span", status), amount);
   details.append(summary);
@@ -35,8 +36,9 @@ function resultRow(result, money) {
     const list = element("ul");
     for (const card of result.missing) {
       const item = element("li");
-      item.append(element("span", card.name), element("span",
-        card.lowestCents == null ? "暂无售价" : money.format(card.lowestCents / 100)));
+      const price = element("span", card.lowestCents == null ? "暂无售价" : money.format(card.lowestCents / 100));
+      if (card.lowestCents == null) price.className = "stch-unknown";
+      item.append(element("span", card.name), price);
       list.append(item);
     }
     details.append(list);
@@ -133,8 +135,7 @@ function mount() {
         const next = [...results.children].find(other => Number(other.dataset.cost) > cost);
         results.insertBefore(row, next || null);
       }
-      status.textContent = `已扫描 ${completed} 个徽章，按补齐一套的预计成本从低到高排列。`
-        + (skipped ? `已跳过 ${skipped} 个满级徽章。` : "");
+      status.textContent = `已扫描 ${completed} 个徽章。` + (skipped ? `已跳过 ${skipped} 个满级徽章。` : "");
     } catch (error) {
       const reason = signal.aborted ? "已停止扫描" : error.status === 429
         ? "Steam 暂时限制了查价频率，请稍后重试" : "Steam 拒绝了请求，请检查登录状态后重试";
